@@ -1,0 +1,8 @@
+/* CSS */
+.blurred-background {
+  backdrop-filter: blur(8px);
+}
+
+.show-button {
+  display: block;
+}

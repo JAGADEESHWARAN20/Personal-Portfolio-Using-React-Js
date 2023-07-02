@@ -1,0 +1,368 @@
+@keyframes colorchange{
+  0% {
+    background-color:  #f79533;
+  }
+  15% {
+    background-color:  #f37055;
+  }
+  25% {
+    background-color: #ef4e7b;
+  }
+  35% {
+    background-color: #a166ab;
+  }
+  45% {
+    background-color: #5073b8;
+  }
+  55% {
+    background-color: #1098ad;
+  }
+  65% {
+    background-color:  #07b39b;
+  }
+  75% {
+    background-color:#6fba82;
+  }
+  85% {
+    background-color:#35b64a;
+  }
+  100% {
+    background-color:#ff8725;
+  }
+}
+
+.infinite-gradient {
+  background-size: 400% 100%;
+  font-family: 'Raleway', sans-serif;
+  animation: colorchange 9s linear infinite alternate both;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+ul.wave-form {
+  border: 1px solid #545FE5;
+  border-radius: 50px;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: ease 0.2s;
+  position: relative;
+  background: transparent;
+  
+}
+
+@media screen and (max-width: 360px) {
+  ul.wave-form {
+    width: 80px; /* Adjusted width for small devices */
+    height: 32px; /* Adjusted height for small devices */
+  }
+}
+
+
+
+
+
+
+
+ul.wave-form:before {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  font-family: sans-serif;
+  color: #fff;
+  transition: ease 0.3s;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+ul.wave-form:hover::before {
+  bottom: -30px;
+  color: #f9f9f9;
+}
+
+
+
+ul.wave-form li {
+  list-style: none;
+  height: 18px;
+  width: 2px;
+  border-radius: 10px;
+  background: #252525;
+  margin: 0 6px;
+  padding: 0;
+  animation-name: wave1;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: ease 0.2s;
+}
+
+ul.wave-form:hover > li {
+  background: #fff;
+}
+
+ul.wave-form:hover {
+  background: #545FE5;
+}
+
+ul.wave-form li:nth-child(2) {
+  animation-name: wave2;
+  animation-delay: 0.2s;
+}
+
+ul.wave-form li:nth-child(3) {
+  animation-name: wave3;
+  animation-delay: 0.23s;
+  animation-duration: 0.4s;
+}
+
+ul.wave-form li:nth-child(4) {
+  animation-name: wave4;
+  animation-delay: 0.1s;
+  animation-duration: 0.3s;
+}
+
+
+@keyframes wave1 {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0.5);
+  }
+}
+
+@keyframes wave2 {
+  from {
+    transform: scaleY(0.3);
+  }
+  to {
+    transform: scaleY(0.6);
+  }
+}
+
+@keyframes wave3 {
+  from {
+    transform: scaleY(0.6);
+  }
+  to {
+    transform: scaleY(0.8);
+  }
+}
+
+@keyframes wave4 {
+  from {
+    transform: scaleY(0.2);
+  }
+  to {
+    transform: scaleY(0.5);
+  }
+}
+
+
+
+
+
+.mouse {
+  margin-top: 30px;
+  width: 20px;
+  height: 30px;
+  border-radius: 20px;
+  position: relative;
+  animation: position 1.5s;
+}
+
+@keyframes position {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+
+.scroll-wheel {
+  margin-top: 2px;
+  width: 1px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(20px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+#hideMeAfter5Seconds {
+  animation: hideAnimation 1s 14s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  
+}
+
+@keyframes hideAnimation {
+  to {
+    opacity: 0;
+    
+  }
+}
+
+
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #000000 transparent transparent transparent;
+}
+.dark .tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* Hide the scrollbar, but still enable scrolling */
+body {
+  overflow: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide the scrollbar in webkit-based browsers */
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+
+
+.tooltipmode {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipmode .tooltiptextmode {
+  visibility: hidden;
+  width: 120px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 10px; /* Adjust padding as needed */
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 125%; /* Change right to left */
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+}
+
+.tooltipmode .tooltiptextmode::after {
+  content: "";
+  position: absolute;
+  top: 65%;
+  left: -9%; /* Change right to left */
+  transform: translateY(-50%);
+  margin-top: -5px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent #080808 transparent transparent; /* Adjust border-color */
+}
+
+.dark .tooltipmode .tooltiptextmode::after {
+  content: "";
+  position: absolute;
+  top: 65%;
+  left: -9%; /* Change right to left */
+  transform: translateY(-50%);
+  margin-top: -5px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent #ffffff transparent transparent; /* Adjust border-color */
+}
+
+.tooltipmode:hover .tooltiptextmode {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+.Following{
+  background-color: #1098ad;
+}
+
+
+
+
+
