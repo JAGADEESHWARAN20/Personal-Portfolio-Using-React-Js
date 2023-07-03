@@ -30,7 +30,7 @@ const Portfolio = () => {
       setPortfolios(filteredData);
     }
     if(selectTab === 'Python'){
-      const filteredData = data.filter(item=> item.category === 'Python','Cryptography');
+      const filteredData = data.filter(item=> item.category === 'Python');
       setPortfolios(filteredData);
     }
   },[selectTab])
@@ -38,28 +38,30 @@ const Portfolio = () => {
   return (
     <>
       <section id='project' className='dark:bg-slate-900 dark:text-white overflow-hidden lg:pt-64 lg:pb-64'>
-          <div className="container">
-            <div className="flex items-center justify-between flex-wrap">
-              <div className="mb-7 sm:mb-0 w-full flex items-center justify-center">
-                <h3 className=" text-headingColor-light dark:text-white text-[3rem] font-[100]">
-                  My recent projects
-                </h3>
-              </div>
-              <div className="flex mt-3 gap-3 small-devices:items-center small-devices:justify-center small-devices:w-full small-devices:overflow-hidden">
-                <button onClick={()=>setSelectedTab('all')} className="text-smallColor-light border border-solid border-smallTextColor-light py-2 px-4 rounded-[8px]">
-                  All
-                </button>
-                <button onClick={()=>setSelectedTab('web-design')} className="text-smallColor-light border border-solid border-smallTextColor-light py-2 px-4 rounded-[8px]" style={{whiteSpace: 'nowrap'}}>
-                  MERN Stack
-                </button>
-                <button onClick={()=>setSelectedTab('Cryptography')} className="text-smallColor-light border border-solid border-smallTextColor-light py-2 px-4 rounded-[8px]" style={{whiteSpace: 'nowrap'}}>
-                  Cryptography
-                </button>
-                <button onClick={()=>setSelectedTab('Python')} className="text-smallColor-light border border-solid border-smallTextColor-light py-2 px-4 rounded-[8px]" style={{whiteSpace: 'nowrap'}}>
-                  Python
-                </button>
-              </div>
-            </div>
+          <div className="container ">
+                <div className="flex items-center justify-between flex-wrap">
+                      <div className="mb-7 sm:mb-0 w-full flex items-center justify-center">
+                        <h3 className="text-headingColor-light dark:text-white text-[3rem] font-[100]">
+                          My recent projects
+                        </h3>
+                      </div>
+                      <div className="flex mt-3 small-devices:items-center small-devices:justify-center small-devices:w-full small-devices:overflow-x-auto">
+                        <div className="flex space-x-3 min-w-[100%]">
+                          <button onClick={() => setSelectedTab('all')} className="text-smallColor-light border border-solid border-smallTextColor-light py-2 px-4 rounded-[8px]">
+                            All
+                          </button>
+                          <button onClick={() => setSelectedTab('web-design')} className="text-smallColor-light border border-solid border-smallTextColor-light py-2 px-4 rounded-[8px]" style={{ whiteSpace: 'nowrap' }}>
+                            MERN Stack
+                          </button>
+                          <button onClick={() => setSelectedTab('Cryptography')} className="text-smallColor-light border border-solid border-smallTextColor-light py-2 px-4 rounded-[8px]" style={{ whiteSpace: 'nowrap' }}>
+                            Cryptography
+                          </button>
+                          <button onClick={() => setSelectedTab('Python')} className="text-smallColor-light border border-solid border-smallTextColor-light py-2 px-4 rounded-[8px]" style={{ whiteSpace: 'nowrap' }}>
+                            Python
+                          </button>
+                        </div>
+                      </div>
+                    </div>
 
             <div className="flex small-devices:justify-center items-center gap-4 flex-wrap mt-12 transition-all">
               {portfolios.slice(0,nextItems)?.map((portfolio,index)=>(
