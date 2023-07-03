@@ -110,7 +110,7 @@ const Header = () => {
                 <a href="#contact">Contact</a>
               </li>
               <div className="tooltipmode">
-                <span className="tooltiptextmode dark:bg-white bg-black dark:text-black text-white">Clrl+Shift+F8</span>
+                <span className="tooltiptextmode dark:bg-white bg-black dark:text-black text-black">Clrl+Shift+F8</span>
                 <li>
                   <button
                     className={`focus:outline-none hover:bg-violet-800 dark:hover:bg-violet-800 text-black hover:text-white transition duration-300 rounded-xl cursor-pointer ${isDarkMode ? 'dark:bg-slate-900 dark:text-white' : 'text-black'} px-4 py-2 flex flex-row gap-3 font-bold`}
