@@ -131,15 +131,21 @@ const Hero = ({ isDarkMode }) => {
                 >
                 {isFollowing ? <>&#10003; Following</> : '+ Follow me'}
               </span>
+              <a href="https://instagram.com/jagadeesh.life?igshid=MzNlNGNkZWQ4Mg==">
               <span className="text-smallTextColor-light font-[300] hover:text-violet-600 rounded-md transition-all duration-150 cursor-pointer dark:text-white dark:hover:text-violet-600">
               <i class="ri-instagram-line"></i>
               </span>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=100035290433724">
               <span className="text-smallTextColor-light font-[300] hover:text-violet-600 rounded-md transition-all duration-150 cursor-pointer dark:text-white dark:hover:text-violet-600">
               <i class="ri-facebook-line"></i>
               </span>
+              </a>
+              <a href="https://github.com/JAGADEESHWARAN20">
               <span className="text-smallTextColor-light font-[300] hover:text-violet-600 rounded-md transition-all duration-150 cursor-pointer dark:text-white dark:hover:text-violet-600">
               <i class="ri-github-fill"></i>
               </span>
+              </a>
               <div className="tooltip">
                 <span className="tooltiptext dark:bg-white bg-black dark:text-black text-white">Only Once</span>
                 <div className="transition-opacity duration-300">
@@ -171,7 +177,7 @@ const Hero = ({ isDarkMode }) => {
               data-aos="fade-right"
               data-aos-duration="1500"
               data-aos-delay="500"
-              className="w-auto h-auto border border-1 border-black bg-yellow-600 dark:bg-violet-600 rounded-[12px] transition-all duration-300"
+              className="w-auto h-auto border border-1 border-black bg-slate-300 bg-opacity-25 dark:border-white backdrop-blur-md dark:bg-violet-600 rounded-[12px] transition-all duration-300"
               style={{ overflow: 'hidden' }}
               ref={divRef}
               onMouseEnter={(e) => {
