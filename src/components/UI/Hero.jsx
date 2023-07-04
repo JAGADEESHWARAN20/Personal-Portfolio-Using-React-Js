@@ -17,6 +17,23 @@ const Hero = ({ isDarkMode }) => {
   const text =
     "HI I'm Jagadeesh! It's great to meet you. As a passionate web developer, the fantastic work of myself will Display in This portfolio and continue to inspire others with my skills and enthusiasm for new technologies!";
 
+
+  useEffect(() => {
+    const audio = new Audio('../../assets/data/drop_it.mp4');
+    audio.play();
+
+    // Stop playing after 5 seconds
+    setTimeout(() => {
+      audio.pause();
+      audio.currentTime = 0;
+    }, 5000);
+
+    // Clean up audio when the component unmounts
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
     
   const [playedOnce, setPlayedOnce] = useState(false);
   const handleReload = () => {
