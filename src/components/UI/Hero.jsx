@@ -28,7 +28,7 @@ const Hero = ({ isDarkMode }) => {
       speak({ text });
       setPlayedOnce(true);
     }
-    if(isRedirect !== isPortfolio)
+    if(portfolio.siteUrl !== isPortfolio)
       setPlayedOnce(false);
   }; 
   const [isFollowing, setIsFollowing] = useState(false);
