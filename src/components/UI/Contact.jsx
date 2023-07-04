@@ -50,7 +50,7 @@ const Contact = () => {
           onClose={handleMessageBoxClose}
         />
       )}
-      <section id="contact" className="dark:bg-slate-900 pb-1 small-devices:flex small-devices:flex-col small-devices:justify-center">
+      <section id="contact" className="dark:bg-slate-900 pb-1 bg-white small-devices:flex small-devices:flex-col small-devices:justify-center">
         <center>
           <h1 className='text-[4rem] dark:text-white font-[100] h-[32px] lg:pb-24 mt-14 small-devices:-mb-[42px]'>Contact</h1>
         </center>
