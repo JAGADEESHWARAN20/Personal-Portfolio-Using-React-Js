@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 import { useSpeechSynthesis } from 'react-speech-kit'
 import './Ui.css';
 import portfolio from '../../assets/data/portfolioData.js'
-
+import music from '../../assets/data/drop_it.mp3'
 
 const Hero = ({ isDarkMode }) => {
 
@@ -18,8 +18,10 @@ const Hero = ({ isDarkMode }) => {
     "HI I'm Jagadeesh! It's great to meet you. As a passionate web developer, the fantastic work of myself will Display in This portfolio and continue to inspire others with my skills and enthusiasm for new technologies!";
 
 
-  useEffect(() => {
-    const audio = new Audio('../../assets/data/drop_it.mp3');
+  const audioRef = useRef(null);
+
+  const handleStart = () => {
+    const audio = audioRef.current;
     audio.play();
 
     // Stop playing after 5 seconds
@@ -27,23 +29,17 @@ const Hero = ({ isDarkMode }) => {
       audio.pause();
       audio.currentTime = 0;
     }, 5000);
-
-    // Clean up audio when the component unmounts
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, []);
+  };
     
   const [playedOnce, setPlayedOnce] = useState(false);
   const handleReload = () => {
     const currentUrl = window.location.href;
     const isPortfolio = currentUrl.includes('https://jagadeeshwaran-dev.vercel.app');
     const isRedirect = currentUrl !== portfolio.siteUrl;
-
     if (!playedOnce && isPortfolio && isRedirect) {
       speak({ text });
       setPlayedOnce(true);
+      handleStart();
     }
     if(portfolio.siteUrl !== isPortfolio)
       setPlayedOnce(false);
@@ -92,7 +88,7 @@ const Hero = ({ isDarkMode }) => {
    
 
     <div className="overflow-hidden">
-
+    <audio ref={audioRef} src={music} />
     <section className={`pt-0 transition-all bg-white duration-300 dark:bg-slate-900`} id='about'>
       <div className='container pt-14'>
         <div className="md:flex items-center justify-between sm:flex-col md:flex-row">
