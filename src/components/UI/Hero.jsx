@@ -19,7 +19,7 @@ const Hero = ({ isDarkMode }) => {
 
 
   useEffect(() => {
-    const audio = new Audio('../../assets/data/drop_it.mp4');
+    const audio = new Audio('../../assets/data/drop_it.mp3');
     audio.play();
 
     // Stop playing after 5 seconds
