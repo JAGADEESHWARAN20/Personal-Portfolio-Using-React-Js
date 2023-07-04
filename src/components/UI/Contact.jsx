@@ -31,23 +31,31 @@ const Contact = () => {
         setShowMessageBox(true);
         console.log('Error sending email:', error);
       });
-
-    e.target.reset();
-  };
-
-  const handleMessageBoxClose = () => {
-    setShowMessageBox(false);
-  };
-
-
-  
-  return (
-    <>
+      
+      e.target.reset();
+    };
+    
+    const handleMessageBoxClose = () => {
+      setShowMessageBox(false);
+    };
+    
+    
+    
+    return (
+      <>
       <section id="contact" className="dark:bg-slate-900 pb-1 bg-white small-devices:flex small-devices:flex-col small-devices:justify-center">
         <center>
           <h1 className='text-[4rem] dark:text-white font-[100] h-[32px] text-slate-900 lg:pb-24 mt-14 small-devices:-mb-[42px]'>Contact</h1>
         </center>
         <div className="container-fluid">
+            {showMessageBox && (
+              <Messagebox
+                className="w-full h-full"
+                messageSent={messageSent}
+                isSubmitted={isSubmitted}
+                onClose={handleMessageBoxClose}
+              />
+            )}
           <div className='lg:w-full flex gap-5 justify-around flex-row flex-wrap small-devices:gap-[72px]'>
             <div className='lg:h-[383px] small-devices:h-[300px] w-[500px]  items-center justify-center flex'>
               <div className="flex flex-col justify-between items-center h-[120px]">
@@ -64,18 +72,9 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
             <span className='small-devices:mt-[50px] dark:bg-slate-900  small-devices:ml-[10px] small-devices:mr-[10px]  pt-[22px]'>
               <div className='small-devices:py-[20px] dark:bg-slate-100   bg-slate-200 transition-colors duration-500 rounded-[12px]'>
                 <form onSubmit={sendEmail}>
-                  {showMessageBox && (
-                    <Messagebox
-                      className="w-full h-full"
-                      messageSent={messageSent}
-                      isSubmitted={isSubmitted}
-                      onClose={handleMessageBoxClose}
-                    />
-                  )}
                   <div className='flex flex-col small-devices:gap-2 lg:gap-6 md:ml-4 small-devices:ml-2 small-devices:mr-2 items-center'>
                     <div className="text-black  dark:text-black text-[32px] font-[300] pb-3">
                       <h1 className=''>Message</h1>
