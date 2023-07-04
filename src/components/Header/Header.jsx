@@ -80,7 +80,7 @@ const Header = () => {
 
 
   return (
-<header  ref={headerRef}  className={`w-full lg:h-[90px] small-devices:h-[90px] transition-all duration-300 ${isDarkMode ? 'dark:bg-slate-900 bg-opacity-25' : 'bg-transparent'} flex justify-center lg:flex-row items-center overflow-hidden sticky_header backdrop-blur-md`}>
+<header  ref={headerRef}  className={`w-full lg:h-[90px] small-devices:h-[90px] transition-all duration-300 ${isDarkMode ? 'dark:bg-slate-900 bg-opacity-25' : 'bg-white bg-opacity-25'} flex justify-center lg:flex-row items-center overflow-hidden sticky_header backdrop-blur-md`}>
       <div className="container">
         <div className="flex items-center justify-between">
           <a href="#">
@@ -124,7 +124,7 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-4">
                 <div ref={headerMessageRef} className={`dark:text-white p-5 ${isDarkMode ? 'dark:text-white' : 'text-black'}`}>
-                            <h1 className={`hover:font-bold text-black dark:text-white font-bold px-4 py-2 small-devices:text-center small-devices:items-center border border-violet-700 flex flex-row gap-3 rounded-xl cursor-pointer hover:bg-violet-800 hover:text-white transition duration-300 lg:flex md:flex`} style={{ whiteSpace: 'nowrap' }}>
+                            <h1 className={`hover:font-bold text-white dark:text-white font-bold px-4 py-2 small-devices:text-center small-devices:items-center border border-violet-700 flex flex-row gap-3 rounded-xl cursor-pointer hover:bg-violet-800 hover:text-white transition duration-300 lg:flex md:flex`} style={{ whiteSpace: 'nowrap' }}>
                               <div className=""><i className="ri-send-plane-fill"></i></div>
                               <a href="#contact">Let's Talk</a>
                             </h1>
