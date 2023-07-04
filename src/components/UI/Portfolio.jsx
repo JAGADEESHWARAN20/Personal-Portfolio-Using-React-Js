@@ -37,7 +37,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <section id='project' className='dark:bg-slate-900 dark:text-white overflow-hidden lg:pt-64 lg:pb-64'>
+      <section id='project' className='dark:bg-slate-900 bg-white dark:text-white overflow-hidden lg:pt-64 lg:pb-64'>
           <div className="container ">
                 <div className="flex items-center justify-between flex-wrap">
                       <div className="mb-7 sm:mb-0 w-full flex items-center justify-center">
