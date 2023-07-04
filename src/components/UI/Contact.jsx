@@ -64,7 +64,11 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-             {showMessageBox && (
+
+            <span className='small-devices:mt-[50px] dark:bg-slate-900  small-devices:ml-[10px] small-devices:mr-[10px]  pt-[22px]'>
+              <div className='small-devices:py-[20px] dark:bg-slate-100   bg-slate-200 transition-colors duration-500 rounded-[12px]'>
+                <form onSubmit={sendEmail}>
+                  {showMessageBox && (
                     <Messagebox
                       className="w-full h-full"
                       messageSent={messageSent}
@@ -72,9 +76,6 @@ const Contact = () => {
                       onClose={handleMessageBoxClose}
                     />
                   )}
-            <span className='small-devices:mt-[50px] dark:bg-slate-900  small-devices:ml-[10px] small-devices:mr-[10px]  pt-[22px]'>
-              <div className='small-devices:py-[20px] dark:bg-slate-100   bg-slate-200 transition-colors duration-500 rounded-[12px]'>
-                <form onSubmit={sendEmail}>
                   <div className='flex flex-col small-devices:gap-2 lg:gap-6 md:ml-4 small-devices:ml-2 small-devices:mr-2 items-center'>
                     <div className="text-black  dark:text-black text-[32px] font-[300] pb-3">
                       <h1 className=''>Message</h1>
