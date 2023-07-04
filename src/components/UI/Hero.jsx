@@ -21,7 +21,7 @@ const Hero = ({ isDarkMode }) => {
   const [playedOnce, setPlayedOnce] = useState(false);
   const handleReload = () => {
     const currentUrl = window.location.href;
-    const isPortfolio = currentUrl.includes('http://localhost:5173');
+    const isPortfolio = currentUrl.includes('https://jagadeeshwaran-dev.vercel.app/');
     const isRedirect = currentUrl !== portfolio.siteUrl;
 
     if (!playedOnce && isPortfolio && isRedirect) {
@@ -76,7 +76,7 @@ const Hero = ({ isDarkMode }) => {
 
     <div className="overflow-hidden">
 
-    <section className={`pt-0 transition-all duration-300 dark:bg-slate-900`} id='about'>
+    <section className={`pt-0 transition-all bg-white duration-300 dark:bg-slate-900`} id='about'>
       <div className='container pt-14'>
         <div className="md:flex items-center justify-between sm:flex-col md:flex-row">
           <div className="w-full md:basis-1/2">
