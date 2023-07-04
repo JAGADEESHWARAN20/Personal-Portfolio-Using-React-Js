@@ -18,33 +18,34 @@ const Hero = ({ isDarkMode }) => {
     "HI I'm Jagadeesh! It's great to meet you. As a passionate web developer, the fantastic work of myself will Display in This portfolio and continue to inspire others with my skills and enthusiasm for new technologies!";
 
 
-const audioRef = useRef(null);
+  const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleStart = () => {
+    const audio = audioRef.current;
+    if (!isPlaying) {
+      audio.volume = 0.5; // Adjust the volume as needed
+      audio.play();
+      setIsPlaying(true);
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  };
 
   useEffect(() => {
     const audio = audioRef.current;
 
-    const handleStart = () => {
-      if (!isPlaying) {
-        audio.volume = 0.5; // Adjust the volume as needed
-        audio.play();
-        setIsPlaying(true);
-      } else {
-        audio.pause();
-        setIsPlaying(false);
-      }
+    const handleEnded = () => {
+      setIsPlaying(false);
     };
 
-    audio.addEventListener('ended', () => {
-      setIsPlaying(false);
-    });
+    audio.addEventListener('ended', handleEnded);
 
     return () => {
-      audio.removeEventListener('ended', () => {
-        setIsPlaying(false);
-      });
+      audio.removeEventListener('ended', handleEnded);
     };
-  }, [isPlaying]);
+  }, []);
     
   const [playedOnce, setPlayedOnce] = useState(false);
   const handleReload = () => {
