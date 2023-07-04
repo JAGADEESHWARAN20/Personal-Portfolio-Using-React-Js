@@ -25,7 +25,7 @@ const Messagebox = ({ messageSent, isSubmitted, onClose }) => {
   return (
     <>
       {isLoading ? (
-        <div className='w-full h-full bg-slate-800 bg-opacity-10 backdrop-blur-md absolute flex flex-col justify-center items-center'>
+        <div className='w-full h-screen bg-slate-800 bg-opacity-10 backdrop-blur-md absolute flex flex-col justify-center items-center'>
           <div className='bg-white w-[200px] h-[100px] flex flex-col items-center justify-center rounded-md'>
             <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900'></div>
             <p className='mt-2'>Loading...</p>
