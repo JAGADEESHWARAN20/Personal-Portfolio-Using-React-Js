@@ -21,7 +21,7 @@ const Hero = ({ isDarkMode }) => {
   const [playedOnce, setPlayedOnce] = useState(false);
   const handleReload = () => {
     const currentUrl = window.location.href;
-    const isPortfolio = currentUrl.includes('https://jagadeeshwaran-dev.vercel.app/');
+    const isPortfolio = currentUrl.includes('https://jagadeeshwaran-dev.vercel.app');
     const isRedirect = currentUrl !== portfolio.siteUrl;
 
     if (!playedOnce && isPortfolio && isRedirect) {
