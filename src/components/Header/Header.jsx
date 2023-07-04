@@ -80,7 +80,7 @@ const Header = () => {
 
 
   return (
-<header  ref={headerRef}  className={`w-full lg:h-[90px] small-devices:h-[90px] transition-all duration-300 ${isDarkMode ? 'dark:bg-slate-900 bg-opacity-25' : 'bg-white bg-opacity-25'} flex justify-center lg:flex-row items-center overflow-hidden sticky_header backdrop-blur-md`}>
+<header  ref={headerRef}  className={`w-full lg:h-[90px] small-devices:h-[90px] transition-all duration-300 ${isDarkMode ? 'dark:bg-slate-900 bg-opacity-25' : 'bg-white bg-opacity-50'} flex justify-center lg:flex-row items-center overflow-hidden sticky_header backdrop-blur-md`}>
       <div className="container">
         <div className="flex items-center justify-between">
           <a href="#">
@@ -89,8 +89,8 @@ const Header = () => {
                 J
               </span>
               <div className={`leading-[20px] ${isDarkMode ? 'dark:text-white' : 'text-white'}`}>
-                <h2 className={`text-2xl font-[700] ${isDarkMode ? 'dark:text-white' : 'text-white'}`}>Jagadeesh</h2>
-                <p className={`text-[18px] font-[500] ${isDarkMode ? 'dark:text-white' : 'text-white'}`}>Personal</p>
+                <h2 className={`text-2xl font-[700] ${isDarkMode ? 'dark:text-white' : 'text-smallTextColor'}`}>Jagadeesh</h2>
+                <p className={`text-[18px] font-[500] ${isDarkMode ? 'dark:text-white' : 'text-smallTextColor'}`}>Personal</p>
               </div>
             </div>
           </a>
