@@ -184,7 +184,7 @@ const Hero = ({ isDarkMode }) => {
                     onClick={handleStart}
                     tabIndex={0}
                   >
-                    {isPlaying ? 'Stop' : 'Start'}
+                    {isPlaying ? '' : ''}
                     <ul className="wave-form" id="waveForm">
                       <div className="flex">
                         {[1, 2, 3, 4].map((index) => (
