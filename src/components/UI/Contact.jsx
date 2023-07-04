@@ -43,14 +43,6 @@ const Contact = () => {
   
   return (
     <>
-     {showMessageBox && (
-        <Messagebox
-          className="w-full h-full"
-          messageSent={messageSent}
-          isSubmitted={isSubmitted}
-          onClose={handleMessageBoxClose}
-        />
-      )}
       <section id="contact" className="dark:bg-slate-900 pb-1 bg-white small-devices:flex small-devices:flex-col small-devices:justify-center">
         <center>
           <h1 className='text-[4rem] dark:text-white font-[100] h-[32px] text-slate-900 lg:pb-24 mt-14 small-devices:-mb-[42px]'>Contact</h1>
@@ -72,6 +64,14 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+             {showMessageBox && (
+                    <Messagebox
+                      className="w-full h-full"
+                      messageSent={messageSent}
+                      isSubmitted={isSubmitted}
+                      onClose={handleMessageBoxClose}
+                    />
+                  )}
             <span className='small-devices:mt-[50px] dark:bg-slate-900  small-devices:ml-[10px] small-devices:mr-[10px]  pt-[22px]'>
               <div className='small-devices:py-[20px] dark:bg-slate-100   bg-slate-200 transition-colors duration-500 rounded-[12px]'>
                 <form onSubmit={sendEmail}>
