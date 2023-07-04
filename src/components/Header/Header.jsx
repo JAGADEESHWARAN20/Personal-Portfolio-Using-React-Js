@@ -88,7 +88,7 @@ const Header = () => {
               <span className={`w-[35px] h-[35px] bg-violet-600 text-white ${isDarkMode ? 'dark:bg-violet-600 dark:text-white' : 'bg-violet-700 text-white'} text-[18px] font-[500] rounded-full flex items-center justify-center`}>
                 J
               </span>
-              <div className={`leading-[20px] ${isDarkMode ? 'dark:text-white' : 'text-white'}`}>
+              <div className={`leading-[20px] ${isDarkMode ? 'dark:text-white' : 'text-smallTextColor'}`}>
                 <h2 className={`text-2xl font-[700] ${isDarkMode ? 'dark:text-white' : 'text-smallTextColor'}`}>Jagadeesh</h2>
                 <p className={`text-[18px] font-[500] ${isDarkMode ? 'dark:text-white' : 'text-smallTextColor'}`}>Personal</p>
               </div>
