@@ -18,18 +18,33 @@ const Hero = ({ isDarkMode }) => {
     "HI I'm Jagadeesh! It's great to meet you. As a passionate web developer, the fantastic work of myself will Display in This portfolio and continue to inspire others with my skills and enthusiasm for new technologies!";
 
 
-  const audioRef = useRef(null);
+const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const handleStart = () => {
+  useEffect(() => {
     const audio = audioRef.current;
-    audio.play();
 
-    // Stop playing after 5 seconds
-    setTimeout(() => {
-      audio.pause();
-      audio.currentTime = 0;
-    }, 5000);
-  };
+    const handleStart = () => {
+      if (!isPlaying) {
+        audio.volume = 0.5; // Adjust the volume as needed
+        audio.play();
+        setIsPlaying(true);
+      } else {
+        audio.pause();
+        setIsPlaying(false);
+      }
+    };
+
+    audio.addEventListener('ended', () => {
+      setIsPlaying(false);
+    });
+
+    return () => {
+      audio.removeEventListener('ended', () => {
+        setIsPlaying(false);
+      });
+    };
+  }, [isPlaying]);
     
   const [playedOnce, setPlayedOnce] = useState(false);
   const handleReload = () => {
@@ -168,6 +183,7 @@ const Hero = ({ isDarkMode }) => {
                     onClick={handleStart}
                     tabIndex={0}
                   >
+                    {isPlaying ? 'Stop' : 'Start'}
                     <ul className="wave-form" id="waveForm">
                       <div className="flex">
                         {[1, 2, 3, 4].map((index) => (
