@@ -39,7 +39,7 @@ const Hero = ({ isDarkMode }) => {
     if (!playedOnce && isPortfolio && isRedirect) {
       speak({ text });
       setPlayedOnce(true);
-      handleStart();
+      
     }
     if(portfolio.siteUrl !== isPortfolio)
       setPlayedOnce(false);
@@ -165,7 +165,7 @@ const Hero = ({ isDarkMode }) => {
                   <div
                     id="hideMeAfter5Seconds"
                     className={`transition-opacity duration-300 ease-in`}
-                    
+                    onClick={handleStart}
                     tabIndex={0}
                   >
                     <ul className="wave-form" id="waveForm">
