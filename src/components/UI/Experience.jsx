@@ -6,7 +6,7 @@ import '../../components/UI/Experience.css';
 
 const Experience = () => {
   return (
-    <section id='experience' className='lg:pt-24 transition-all duration-300 dark:bg-slate-900 overflow-hidden'>
+    <section id='experience' className='lg:pt-24 bg-white transition-all duration-300 dark:bg-slate-900 overflow-hidden'>
       
     <div className='container lg:pt-5'> 
         <div className="text-center">
@@ -178,17 +178,10 @@ const Experience = () => {
                   <div data-aos="fade-up" className="rounded-full p-3 text-white dark:bg-white dark:text-primaryColor-light font-[2px] bg-primaryColor-light border-white w-3 h-3 absolute inset-x-0 mx-auto bottom-4 sm:bottom-0 flex items-center justify-center small-devices:hidden lg:flex ">
                       O
                     </div>
-
-
                 </div>
-                
-
-                
               </div>
           </div>
         </div>
-
-
     </div>
     </section>
   )
