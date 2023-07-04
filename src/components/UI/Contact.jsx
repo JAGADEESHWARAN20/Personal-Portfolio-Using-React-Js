@@ -45,6 +45,7 @@ const Contact = () => {
     <>
      {showMessageBox && (
         <Messagebox
+          className="w-full h-full"
           messageSent={messageSent}
           isSubmitted={isSubmitted}
           onClose={handleMessageBoxClose}
