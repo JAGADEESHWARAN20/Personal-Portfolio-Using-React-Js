@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react'
 import data from "../../assets/data/portfolioData";
 import Model from './Model';
 import './portfolio.css';
+import UIDesigns from "./UIDesigns"
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Portfolio = () => {
   const [nextItems,setNextItems] = useState(6);
@@ -9,7 +11,24 @@ const Portfolio = () => {
   const [selectTab,setSelectedTab] = useState('all');
   const [activeID,setActiveID] = useState(null);
   const [showModel,setShowModel] = useState(false);
+  const [scrollOpacity, setScrollOpacity] = useState(1);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
 
+      if (scrollY > 0) {
+        setScrollOpacity(0);
+      } else {
+        setScrollOpacity(1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   const loadMoreHandler = () =>{
     setNextItems(prev=>prev+3);
   };
@@ -37,7 +56,8 @@ const Portfolio = () => {
 
   return (
     <>
-      <section id='project' className='dark:bg-slate-900 bg-white dark:text-white overflow-hidden lg:pt-64 lg:pb-64'>
+    
+      <section id='project' className='dark:bg-slate-900 dark:text-white overflow-hidden lg:pt-8 lg:pb-8'>
           <div className="container ">
                 <div className="flex items-center justify-between flex-wrap">
                       <div className="mb-7 sm:mb-0 w-full flex items-center justify-center">
@@ -63,7 +83,7 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-            <div className="flex small-devices:justify-center items-center gap-4 flex-wrap mt-12 transition-all">
+            <div className="flex small-devices:justify-center items-center gap-4 flex-wrap mt-6 transition-all">
               {portfolios.slice(0,nextItems)?.map((portfolio,index)=>(
                 <div
                   key={index} data-aos='fade-zoom-in' data-aos-duration='1200' data-aos-delay='50' className="group max-w-full sm:w-[48.8%] md:[31.8%] lg:w-[32.2%] relative z-[1] transition-all duration-150 ease-in">
@@ -92,6 +112,18 @@ const Portfolio = () => {
           </div>
             {showModel && <Model activeID={activeID} setShowModel={setShowModel} />}
       </section>
+      <div className="flex flex-col cursor-pointer items-center justify-center overflow-hidden">
+          <Link to={"/uidesigns"}>
+            <div
+            className="mouse dark:border-white border-black border border-x-2 transition-opacity duration-300"
+            style={{ opacity: scrollOpacity }}
+             >
+            <div className="scroll-wheel dark:border-white border-black border"></div>
+            </div>
+            </Link>
+          </div>
+       
+      <UIDesigns/>
     </>
   )
 }
