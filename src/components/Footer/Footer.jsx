@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Footer = () => {
-  const urllinks = ["/terms-and-conditions", "", "", "", "/privacy-policy"]; // Update the last link to point to the Privacy Policy page
+  const urllinks = ["/terms-and-conditions", "", "", "", "/privacy-policy"]; 
   return (
     <section className='lg:w-full mobile2:w-auto md:w-auto small-devices:w-auto bg-white dark:bg-slate-900 small-devices:flex small-devices:flex-col bg-transparent items-center flex flex-row justify-center h-[10px] '>
       <div className='lg:w-full small-devices:flex-col list-none flex lg:flex-row gap-5 justify-evenly'>
