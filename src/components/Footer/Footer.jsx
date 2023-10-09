@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Footer = () => {
-  const urllinks = ["","","","","https://merchant.razorpay.com/policy/Mm5bhtanFlmeNw/privacy"]
+  const urllinks = ["/terms-and-conditions", "", "", "", "/privacy-policy"]; // Update the last link to point to the Privacy Policy page
   return (
     <section className='lg:w-full mobile2:w-auto md:w-auto small-devices:w-auto bg-white dark:bg-slate-900 small-devices:flex small-devices:flex-col bg-transparent items-center flex flex-row justify-center h-[10px] '>
       <div className='lg:w-full small-devices:flex-col list-none flex lg:flex-row gap-5 justify-evenly'>
@@ -22,7 +23,7 @@ const Footer = () => {
       {/* Add your list of items in a row here */}
       <ul className='lg:w-full small-devices:flex-col list-none flex lg:flex-row gap-5 justify-evenly mt-5'>
         <li>
-          <a href={urllinks[0]}>Terms and Conditions</a>
+          <Link to={urllinks[0]}>Terms and Conditions</Link>
         </li>
         <li>
           <a href={urllinks[1]}>Cancellation and Refund</a>
@@ -34,7 +35,7 @@ const Footer = () => {
           <a href={urllinks[3]}>Contact Us</a>
         </li>
         <li>
-          <a href={urllinks[4]}>Privacy Policy</a>
+          <Link to={urllinks[4]}>Privacy Policy</Link> {/* Link to the Privacy Policy page */}
         </li>
       </ul>
     </section>
