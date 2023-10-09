@@ -32,30 +32,29 @@ const Contact = () => {
         console.log('Error sending email:', error);
       });
       
-      e.target.reset();
-    };
-    
-    const handleMessageBoxClose = () => {
-      setShowMessageBox(false);
-    };
-    
-    
-    
-    return (
-      <>
-      <section id="contact" className="dark:bg-slate-900 pb-1 bg-white small-devices:flex small-devices:flex-col small-devices:justify-center">
+    e.target.reset();
+  };
+  
+  const handleMessageBoxClose = () => {
+    setShowMessageBox(false);
+  };
+  
+  
+  
+  return (
+    <>
+      <section id="contact" className="dark:bg-slate-900 pb-[80px] small-devices:flex small-devices:flex-col small-devices:justify-center">
         <center>
-          <h1 className='text-[4rem] dark:text-white font-[100] h-[32px] text-slate-900 lg:pb-24 mt-14 small-devices:-mb-[42px]'>Contact</h1>
+          <h1 className='text-[4rem] dark:text-white font-[100] h-[32px] lg:pb-24 mt-8 small-devices:-mb-[42px]'>Contact</h1>
         </center>
         <div className="container-fluid">
-            {showMessageBox && (
-              <Messagebox
-                className="w-full h-full"
-                messageSent={messageSent}
-                isSubmitted={isSubmitted}
-                onClose={handleMessageBoxClose}
-              />
-            )}
+    {showMessageBox && (
+       <Messagebox
+         messageSent={messageSent}
+         isSubmitted={isSubmitted}
+         onClose={handleMessageBoxClose}
+       />
+     )}
           <div className='lg:w-full flex gap-5 justify-around flex-row flex-wrap small-devices:gap-[72px]'>
             <div className='lg:h-[383px] small-devices:h-[300px] w-[500px]  items-center justify-center flex'>
               <div className="flex flex-col justify-between items-center h-[120px]">
