@@ -19,7 +19,10 @@ import UIDesigns from './components/UI/UIDesigns';
 const App = () => {
   useEffect(() => {
     Aos.init();
+
   }, []);
+  
+
 
   return (
     <Router>
@@ -29,26 +32,17 @@ const App = () => {
           <Switch>
             <Route path="/terms-and-conditions" component={TermsAndConditions} />
             <Route path="/privacy-policy" component={PrivacyPolicy} />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/hero" component={Hero} />
+            <Route path="/experience" component={Experience} />
+            <Route path="/projects" component={Portfolio} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/uidesigns" component={UIDesigns} />
+
           </Switch>
-         
         </main>
         <Footer />
       </>
     </Router>
-  );
-};
-
-const Home = () => {
-  // Content for your home page
-  return (
-    <>
-      <Hero />
-      <Experience />
-      <Portfolio />
-      <UIDesigns />
-      <Contact />
-    </>
   );
 };
 
