@@ -9,11 +9,11 @@ const UIDesigns = () => {
   const [uiDesigns, setUiDesigns] = useState(data);
 
   return (
-    <section className='bg-white dark:bg-slate-900 dark:text-white lg:h-auto small-devices:h-auto '>
+    <section className='bg-white dark:bg-slate-900 dark:text-white lg:h-auto pb-[80px] small-devices:h-auto '>
       <center>
         <h1 className='lg:text-[40px] small-devices:text-[40px] '>UI Designs</h1>
-        <div className="w-[200px] small-devices:mt-4 lg:mt-2 h-[3px] lg:mb-[92px] bg-black transition-colors dark:bg-violet-800"></div>
-        <div className='grid lg:pb-[92px] lg:grid-cols-3 lg:grid-rows-auto mx-10 my-10 gap-y-3 gap-x-3 small-devices:grid-cols-1 small-devices:grid-rows-auto transition-all duration-300 '>
+        <div className="w-[200px] small-devices:mt-4 lg:mt-2 h-[3px] lg:mb-[12px] bg-black transition-colors dark:bg-violet-800"></div>
+        <div className='grid lg:pb-[92px] lg:grid-cols-3 lg:grid-rows-auto mx-10  gap-y-3 gap-x-3 small-devices:grid-cols-1 small-devices:grid-rows-auto transition-all duration-300 '>
           {uiDesigns.map((design, index) => (
             <div
               key={index}
