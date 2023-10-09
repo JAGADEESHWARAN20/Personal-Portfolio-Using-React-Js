@@ -5,14 +5,12 @@ import { useSpeechSynthesis } from 'react-speech-kit'
 import './Ui.css';
 import portfolio from '../../assets/data/portfolioData.js'
 import music from '../../assets/data/drop_it.mp3'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-const Hero = ({ isDarkMode }) => {
-
-
+const Hero = () => {
   const divRef = useRef(null);
   const imgRef = useRef(null);
 
-  
   const { speak } = useSpeechSynthesis();
   const text =
     "HI I'm Jagadeesh! It's great to meet you. As a passionate web developer, the fantastic work of myself will Display in This portfolio and continue to inspire others with my skills and enthusiasm for new technologies!";
@@ -20,7 +18,6 @@ const Hero = ({ isDarkMode }) => {
 
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
   const handleStart = () => {
     const audio = audioRef.current;
     if (!isPlaying) {
@@ -32,6 +29,8 @@ const Hero = ({ isDarkMode }) => {
       setIsPlaying(false);
     }
   };
+  
+  
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -63,23 +62,16 @@ const Hero = ({ isDarkMode }) => {
   const [isFollowing, setIsFollowing] = useState(false);
   const followbutton = document.getElementById('mySpan');
   const toggleFollow = () => {
-    followbutton.classList.toggle('Following')
+    followbutton.classNameList.toggle('Following')
     setIsFollowing((prevFollowing) => !prevFollowing);
   };
-
   useEffect(() => {
     window.addEventListener('beforeunload',handleReload);
     return () =>{
         window.removeEventListener('beforeunload',handleReload);
     }
   }, []);
-  
- 
-  
-
-
   const [scrollOpacity, setScrollOpacity] = useState(1);
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -104,8 +96,8 @@ const Hero = ({ isDarkMode }) => {
    
 
     <div className="overflow-hidden">
-    <audio ref={audioRef} src={music} />
-    <section className={`pt-0 transition-all bg-white duration-300 dark:bg-slate-900`} id='about'>
+    <audio ref={audioRef} src={music} onLoad={handleStart} />
+    <section className={`pt-0 transition-all bg-white duration-300 dark:bg-slate-900 pb-[80px]`} id='about'>
       <div className='container pt-14'>
         <div className="md:flex items-center justify-between sm:flex-col md:flex-row">
           <div className="w-full md:basis-1/2">
@@ -117,7 +109,8 @@ const Hero = ({ isDarkMode }) => {
               Hello, Welcome
             </h5>
             <h1 className={`text-headingColor-light dark:text-white font-extrabold text-[1.8rem] sm:text-[40px] leading-[35px] sm:leading-[46px] mt-5 pr-10`} data-aos='fade-up' data-aos-duration='1000'>
-                <span className='lg:text-[90px] small-devices:text-[40px] small-devices:gap-[2px] font-[100] flex flex-col lg:gap-[28px]'><span className='px-4 small-devices:px-2'>I'm</span> <span>Jagadeeshwaran</span></span>
+                <span className='lg:text-[90px] small-devices:text-[40px] small-devices:gap-[2px] font-[100] flex flex-col lg:gap-[28px]'><span className='px-4 small-devices:px-2'>I'm</span> 
+                <span>Jagadeeshwaran</span></span>
                 <br />
                 <span className="text-[32px]">
                   <span className="infinite-gradient font-['poppins'] font-[50]">Software Developer</span>
@@ -130,19 +123,19 @@ const Hero = ({ isDarkMode }) => {
               data-aos-delay='200'
               className="flex items-center gap-6 mt-7"
             >
-              <a href="#contact">
+              <Link to={"/contact"}>
                 <button className='bg-yellow-600 text-white hover:text-white font-semibold flex items-center gap-2 hover:bg-orange-700 dark:hover:bg-white dark:bg-transparent dark:hover:text-violet-800 ease-in duration-300 px-4 py-2 rounded-md'>
                   <i className='ri-mail-line'></i><a href="mailto:jagadeeshwaransp5@gmail.com">Hire me</a> 
                 </button>
-              </a>
-              <a href="#project" className='dark:text-white dark:bg-violet-600 dark:hover:bg-white dark:hover:text-violet-800 hover:text-violet-600 rounded-md duration-300 dark:hover:border-none transition-all px-4 py-2'>
+              </Link>
+              <Link to={"/project"} className='dark:text-white dark:bg-violet-600 dark:hover:bg-white dark:hover:text-violet-800 hover:text-violet-600 rounded-md duration-300 dark:hover:border-none transition-all px-4 py-2'>
                 <span className='border-smallTextColor-light dark:hover:border-white'>See portfolio</span>
-              </a>
+              </Link>
             </div>
             <p   data-aos='fade-left'
               data-aos-duration='1500'
               data-aos-delay='500' className="mt-14 flex gap-2 text-headingColor text-justify font-[500] text-[15px] dark:text-white leading-7 sm:pl-14 sm:pr-10">
-              <span> <i class='ri-apps-line'></i> </span>
+              <span> <i className='ri-apps-line'></i> </span>
               HI I'm Jagadeesh! It's great to meet you.
               As a passionate web developer,
               the fantastic work of myself will Display in This portfolio and continue to inspire others with my skills and enthusiasm for new technologies!
@@ -160,19 +153,19 @@ const Hero = ({ isDarkMode }) => {
                 >
                 {isFollowing ? <>&#10003; Following</> : '+ Follow me'}
               </span>
-              <a href="https://instagram.com/jagadeesh.life?igshid=MzNlNGNkZWQ4Mg==">
+            <a href="https://instagram.com/jagadeesh.life?igshid=MzNlNGNkZWQ4Mg==">
               <span className="text-smallTextColor-light font-[300] hover:text-violet-600 rounded-md transition-all duration-150 cursor-pointer dark:text-white dark:hover:text-violet-600">
-              <i class="ri-instagram-line"></i>
+              <i className="ri-instagram-line"></i>
               </span>
-              </a>
+            </a>
               <a href="https://www.facebook.com/profile.php?id=100035290433724">
               <span className="text-smallTextColor-light font-[300] hover:text-violet-600 rounded-md transition-all duration-150 cursor-pointer dark:text-white dark:hover:text-violet-600">
-              <i class="ri-facebook-line"></i>
+              <i className="ri-facebook-line"></i>
               </span>
               </a>
               <a href="https://github.com/JAGADEESHWARAN20">
               <span className="text-smallTextColor-light font-[300] hover:text-violet-600 rounded-md transition-all duration-150 cursor-pointer dark:text-white dark:hover:text-violet-600">
-              <i class="ri-github-fill"></i>
+              <i className="ri-github-fill"></i>
               </span>
               </a>
               <div className="tooltip">
@@ -194,15 +187,11 @@ const Hero = ({ isDarkMode }) => {
                     </ul> 
                   </div> 
                 </div>
-              </div>
-               
-          
-              
+              </div> 
             </div> 
           </div>
           <div className="basis-1/3 mt-10 sm:mt-0">
             <figure className='flex items-center justify-center'>
-            
             <div
               data-aos="fade-right"
               data-aos-duration="1500"
@@ -228,14 +217,7 @@ const Hero = ({ isDarkMode }) => {
                 style={{ transition: 'transform 0.5s' }}
                 ref={imgRef}
               />
-              
-            </div>
-            
-
-
-
-
-            
+              </div>
             </figure>
           </div>
           <div className="md:basis-1/5 flex justify-between text-center mt-10 flex-wrap gap-3 md:mt-0 md:flex-col md:justify-end md:text-end">
@@ -258,27 +240,21 @@ const Hero = ({ isDarkMode }) => {
           </div>
         </div>
         <div className="flex flex-col cursor-pointer items-center justify-center overflow-hidden">
-          <a href="#experience">
+          <Link to={"/experience"}>
             <div
             className="mouse dark:border-white border-black border border-x-2 transition-opacity duration-300"
             style={{ opacity: scrollOpacity }}
              >
             <div className="scroll-wheel dark:border-white border-black border"></div>
             </div>
-            </a>
+            </Link>
           </div>
         </div>
     </section>
-      
-
     </div>
-             
-    
-
   );
 }
 
 export default Hero;
-
 
 
