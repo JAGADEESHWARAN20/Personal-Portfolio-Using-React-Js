@@ -31,11 +31,7 @@ const App = () => {
             <Route path="/privacy-policy" component={PrivacyPolicy} />
             <Route exact path="/" component={Home} />
           </Switch>
-          <Hero />
-          <Experience />
-          <Portfolio />
-          <UIDesigns />
-          <Contact />
+         
         </main>
         <Footer />
       </>
