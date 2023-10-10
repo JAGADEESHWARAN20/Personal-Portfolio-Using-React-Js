@@ -239,16 +239,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col cursor-pointer items-center justify-center overflow-hidden">
-          <Link to={"/experience"}>
-            <div
-            className="mouse dark:border-white border-black border border-x-2 transition-opacity duration-300"
-            style={{ opacity: scrollOpacity }}
-             >
-            <div className="scroll-wheel dark:border-white border-black border"></div>
-            </div>
-            </Link>
-          </div>
+       
         </div>
     </section>
     </div>
