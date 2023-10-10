@@ -9,7 +9,7 @@ const UIDesigns = () => {
   const [uiDesigns, setUiDesigns] = useState(data);
 
   return (
-    <section className='bg-white dark:bg-slate-900 dark:text-white lg:h-auto pb-[80px] small-devices:h-auto '>
+    <section className='bg-white dark:bg-slate-900 dark:text-white lg:h-auto  pb-[80px] small-devices:h-full '>
       <center>
         <h1 className='lg:text-[40px] small-devices:text-[40px] '>UI Designs</h1>
         <div className="w-[200px] small-devices:mt-4 lg:mt-2 h-[3px] lg:mb-[12px] bg-black transition-colors dark:bg-violet-800"></div>
