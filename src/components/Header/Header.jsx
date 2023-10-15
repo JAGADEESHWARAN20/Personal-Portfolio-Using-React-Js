@@ -99,9 +99,16 @@ const Header = () => {
               <li className={`text-smallTextColor small-devices:hidden lg:inline-block ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'} px-5 py-3 transition-all rounded-md hover:bg-violet-700 hover:text-white dark:hover:bg-white dark:hover:text-violet-700 font-[600]`}>
               <Link to={'/experience'} >Experience</Link>
               </li>
-              <li className={`text-smallTextColor small-devices:hidden lg:inline-block ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'} px-5 py-3 transition-all rounded-md hover:bg-violet-700 hover:text-white dark:hover:bg-white dark:hover:text-violet-700 font-[600]`}>
-              <Link to={'/projects'} >Projects</Link>
-              </li>
+             <div className="group relative">
+                <li className={`text-smallTextColor small-devices:hidden lg:inline-block ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'} px-5 py-3 transition-all rounded-md hover:bg-violet-700 hover:text-white dark:hover:bg-white dark:hover:text-violet-700 font-[600]`}>
+                  <Link to={'/projects'}>Projects</Link>
+                </li>
+                <ul className="absolute hidden group-hover:block mt-2 bg-white dark:bg-violet-700 text-smallTextColor dark:text-white rounded-md py-2 px-3">
+                  <li>
+                    <Link to={'/uidesign'}>UI DESIGN</Link>
+                  </li>
+                </ul>
+              </div>
               <li className={`text-smallTextColor small-devices:hidden lg:inline-block ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'} px-5 py-3 transition-all rounded-md hover:bg-violet-700 hover:text-white dark:hover:bg-white dark:hover:text-violet-700 font-[600]`}>
               <Link to={'/contact'} >Contact</Link>
               </li>
