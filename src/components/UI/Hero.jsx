@@ -128,7 +128,7 @@ const Hero = () => {
                   <i className='ri-mail-line'></i><a href="mailto:jagadeeshwaransp5@gmail.com">Hire me</a> 
                 </button>
               </Link>
-              <Link to={"/project"} className='dark:text-white dark:bg-violet-600 dark:hover:bg-white dark:hover:text-violet-800 hover:text-violet-600 rounded-md duration-300 dark:hover:border-none transition-all px-4 py-2'>
+              <Link to={"/projects"} className='dark:text-white dark:bg-violet-600 dark:hover:bg-white dark:hover:text-violet-800 hover:text-violet-600 rounded-md duration-300 dark:hover:border-none transition-all px-4 py-2'>
                 <span className='border-smallTextColor-light dark:hover:border-white'>See portfolio</span>
               </Link>
             </div>
