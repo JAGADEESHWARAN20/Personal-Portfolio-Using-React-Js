@@ -95,7 +95,7 @@ const Hero = () => {
   return (
    
 
-    <div className="overflow-hidden">
+    <div className="">
     <audio ref={audioRef} src={music} onLoad={handleStart} />
     <section className={`pt-0 transition-all bg-white duration-300 dark:bg-slate-900 pb-[80px]`} id='about'>
       <div className='container pt-14'>
