@@ -85,7 +85,7 @@ const Header = () => {
               </span>
               <div className={`leading-[20px] ${isDarkMode ? 'dark:text-white' : 'text-smallTextColor-light'}`}>
                 <h2 className={`text-2xl font-[700] ${isDarkMode ? 'dark:text-white' : 'text-smallTextColor-light'}`}>
-                  <Link rel="stylesheet" to="/hero" >Jagadeesh</Link></h2>
+                  <Link rel="stylesheet" to="/" >Jagadeesh</Link></h2>
                 <p className={`text-[18px] font-[500] ${isDarkMode ? 'dark:text-white' : 'text-smallTextColor-light'}`}>Personal</p>
               </div>
             </div>
@@ -94,7 +94,7 @@ const Header = () => {
 
             <ul className={`list-none flex items-center gap-10 md:gap-2 md:flex`}>
               <li className={`text-smallTextColor small-devices:hidden lg:inline-block ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'} px-5 py-3 transition-all rounded-md hover:bg-violet-700 hover:text-white dark:hover:bg-white dark:hover:text-violet-700 font-[600]`}>
-                <Link to={'/hero'} >About</Link>
+                <Link to={'/about'} >About</Link>
               </li>
               <li className={`text-smallTextColor small-devices:hidden lg:inline-block ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'} px-5 py-3 transition-all rounded-md hover:bg-violet-700 hover:text-white dark:hover:bg-white dark:hover:text-violet-700 font-[600]`}>
               <Link to={'/experience'} >Experience</Link>
