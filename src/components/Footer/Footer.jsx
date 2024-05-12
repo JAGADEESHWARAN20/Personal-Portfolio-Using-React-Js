@@ -20,24 +20,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Add your list of items in a row here */}
-      <ul className='lg:w-full small-devices:w-full small-devices:items-center small-devices:flex-col dark:bg-slate-900 list-none flex lg:flex-row gap-5 justify-evenly pt-5'>
-        <li>
-          <Link to={urllinks[0]}>Terms and Conditions</Link>
-        </li>
-        <li>
-          <a href={urllinks[1]}>Cancellation and Refund</a>
-        </li>
-        <li>
-          <a href={urllinks[2]}>Shipping and Delivery</a>
-        </li>
-        <li>
-          <a href={urllinks[3]}>Contact Us</a>
-        </li>
-        <li>
-          <Link to={urllinks[4]}>Privacy Policy</Link> {/* Link to the Privacy Policy page */}
-        </li>
-      </ul>
+    
     </section>
   );
 };
