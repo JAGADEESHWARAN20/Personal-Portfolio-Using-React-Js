@@ -6,8 +6,7 @@ import './App.css';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import TermsAndConditions from './components/UI/TermsAndConditions'; // Import the TermsAndConditions component
-import PrivacyPolicy from './components/UI/PrivacyPolicy'; // Import the PrivacyPolicy component
+
 
 // Other components
 import Hero from './components/UI/Hero';
@@ -30,9 +29,8 @@ const App = () => {
         <Header />
         <main>
           <Switch>
-            <Route path="/terms-and-conditions" component={TermsAndConditions} />
-            <Route path="/privacy-policy" component={PrivacyPolicy} />
-            <Route exact path="/hero" component={Hero} />
+            <Route exact path="/" component={Hero} />
+            <Route exact path="/about" component={Hero} />
             <Route path="/experience" component={Experience} />
             <Route path="/projects" component={Portfolio} />
             <Route path="/contact" component={Contact} />
