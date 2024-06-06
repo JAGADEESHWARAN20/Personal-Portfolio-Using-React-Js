@@ -1,5 +1,5 @@
 import React, { useEffect,useRef,useState} from 'react';
-import heroImg from "../../assets/images/profile1.jpg";
+import heroImg from "../../assets/images/profile01.png.png";
 import CountUp from "react-countup";
 import { useSpeechSynthesis } from 'react-speech-kit'
 import './Ui.css';
