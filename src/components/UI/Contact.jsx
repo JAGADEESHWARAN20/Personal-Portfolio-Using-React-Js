@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Contact.css';
 import support1 from '../../assets/images/support1.png';
 import support2 from '../../assets/images/Patreon-Logo-Icon.png';
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
 import Messagebox from './Messagebox';
 
 const Contact = () => {
@@ -10,6 +10,8 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showMessageBox, setShowMessageBox] = useState(false);
 
+  // Commented out EmailJS code
+  /*
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -34,13 +36,46 @@ const Contact = () => {
       
     e.target.reset();
   };
-  
+  */
+
   const handleMessageBoxClose = () => {
     setShowMessageBox(false);
   };
-  
-  
-  
+
+  // New code for handling form submission
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message')
+    };
+
+    fetch('http://192.168.168.223:5000/receive_message', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      setMessageSent(true);
+      setIsSubmitted(true);
+      setShowMessageBox(true);
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      setMessageSent(false);
+      setIsSubmitted(true);
+      setShowMessageBox(true);
+      console.error('Error:', error);
+    });
+
+    event.target.reset();
+  };
+
   return (
     <>
       <section id="contact" className="dark:bg-slate-900 pb-[80px] small-devices:flex small-devices:flex-col small-devices:justify-center">
@@ -48,13 +83,13 @@ const Contact = () => {
           <h1 className='text-[4rem] dark:text-white font-[100] h-[32px] lg:pb-24 mt-8 small-devices:-mb-[42px]'>Contact</h1>
         </center>
         <div className="container-fluid">
-    {showMessageBox && (
-       <Messagebox
-         messageSent={messageSent}
-         isSubmitted={isSubmitted}
-         onClose={handleMessageBoxClose}
-       />
-     )}
+          {showMessageBox && (
+            <Messagebox
+              messageSent={messageSent}
+              isSubmitted={isSubmitted}
+              onClose={handleMessageBoxClose}
+            />
+          )}
           <div className='lg:w-full flex gap-5 justify-around flex-row flex-wrap small-devices:gap-[72px]'>
             <div className='lg:h-[383px] small-devices:h-[300px] w-[500px]  items-center justify-center flex'>
               <div className="flex flex-col justify-between items-center h-[120px]">
@@ -73,11 +108,12 @@ const Contact = () => {
             </div>
             <span className='small-devices:mt-[50px] dark:bg-slate-900  small-devices:ml-[10px] small-devices:mr-[10px]  pt-[22px]'>
               <div className='small-devices:py-[20px] dark:bg-slate-100   bg-slate-200 transition-colors duration-500 rounded-[12px]'>
-                <form onSubmit={sendEmail}>
+                <form onSubmit={handleFormSubmit}>
                   <div className='flex flex-col small-devices:gap-2 lg:gap-6 md:ml-4 small-devices:ml-2 small-devices:mr-2 items-center'>
                     <div className="text-black  dark:text-black text-[32px] font-[300] pb-3">
                       <h1 className=''>Message</h1>
                     </div>
+                    <div className="small-devices:mx-[6px] lg:mx-5"><input required type="text" name='name' placeholder='enter name' className='dark:border-white dark:border small-devices:w-[300px] pl-[23px] tracking-[1px] bg-slate-900  py-3 lg:w-[800px] rounded-lg text-green-300' /></div>
                     <div className="small-devices:mx-[6px] lg:mx-5"><input required type="text" name='email' placeholder='enter email' className='dark:border-white dark:border small-devices:w-[300px] pl-[23px] tracking-[1px] bg-slate-900  py-3 lg:w-[800px] rounded-lg text-green-300' /></div>
                     <div className="small-devices:mx-[6px] lg:mx-5"><textarea required type="text" name='message' placeholder='enter message' className='dark:border-white dark:border small-devices:w-[300px] lg:h-[200px] bg-slate-900  lg:w-[800px] pb-[25px] pr-[25px] pl-[25px] pt-[10px] rounded-lg text-white' /></div>
                     <button type='submit' className='bg-yellow-500 hover:bg-orange-500 transition-all duration-200 text-black p-[10px] w-[225px] rounded-[35px] items-center'>Submit</button>
@@ -87,12 +123,9 @@ const Contact = () => {
             </span>
           </div>
         </div>
-
       </section>
     </>
   );
 };
 
 export default Contact;
-
-
