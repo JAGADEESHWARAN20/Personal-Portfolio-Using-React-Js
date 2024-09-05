@@ -46,7 +46,7 @@ const Header = () => {
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setDarkMode(newMode);
-    localStorage.setItem('theme', newMode ? 'light' : 'dark');
+    localStorage.setItem('theme', newMode ? 'dark' : 'light');
     document.documentElement.classList.toggle('dark', newMode);
   };
   useEffect(() => {
