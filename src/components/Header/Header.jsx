@@ -119,7 +119,7 @@ const Header = () => {
                     className={`focus:outline-none hover:bg-violet-800 dark:hover:bg-violet-800 text-black hover:text-white transition duration-300 rounded-xl cursor-pointer ${isDarkMode ? 'dark:bg-slate-900 dark:text-white' : 'text-black'} px-4 py-2 flex flex-row gap-3 font-bold`}
                     onClick={toggleDarkMode}
                   >
-                    {isDarkMode ? <RiMoonLine className="hover:bg-violet-600 text-white" /> : <RiSunLine className="text-smallTextColor hover:text-white" />}
+                    {!isDarkMode ? <RiMoonLine className="hover:bg-violet-600 text-white" /> : <RiSunLine className="text-smallTextColor hover:text-white" />}
                   </button>
                 </li>
               </div>
