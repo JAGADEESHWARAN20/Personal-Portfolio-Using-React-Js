@@ -41,7 +41,7 @@ const Header = () => {
     return window.removeEventListener('scroll',stickyHeaderFunc);
   },[]);
 
-  const [isDarkMode, setDarkMode] = useState(false);
+  const [isDarkMode, setDarkMode] = useState(true);
   
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
