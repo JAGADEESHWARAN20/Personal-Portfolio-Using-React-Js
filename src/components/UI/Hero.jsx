@@ -97,7 +97,7 @@ const Hero = () => {
 
     <div className="">
     <audio ref={audioRef} src={music} onLoad={handleStart} />
-    <section className={`pt-0 transition-all bg-white duration-300 dark:bg-slate-900 pb-[80px]`} id='about'>
+    <section className={`pt-0 transition-all  duration-300 dark:bg-slate-900 pb-[80px]`} id='about'>
       <div className='container pt-14'>
         <div className="md:flex items-center justify-between sm:flex-col md:flex-row">
           <div className="w-full md:basis-1/2">
