@@ -52,14 +52,15 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 
         ${isDarkMode 
           ? 'dark:bg-slate-900/95 dark:text-white' 
           : 'bg-white/95 text-slate-900'
-        } ${isMenuOpen ? 'h-screen md:h-auto' : 'h-20'}`}
+        } ${isMenuOpen ? 'h-screen md:h-[80px]' : 'h-[80px]'}
+        backdrop-blur-sm border-b border-slate-200 dark:border-slate-700/50`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 h-full">
+        <div className="flex items-center justify-between h-[80px]"> {/* Fixed height header */}
           {/* Logo Section */}
           <div className="flex items-center gap-3">
             <span className="w-10 h-10 bg-violet-600 text-white rounded-full flex items-center justify-center font-bold">
@@ -115,7 +116,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden min-h-screen py-8">
+          <nav className="md:hidden h-[calc(100vh-80px)] py-6">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
