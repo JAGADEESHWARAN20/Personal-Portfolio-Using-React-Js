@@ -8,43 +8,143 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* For smooth scrolling with fixed header */
 }
-
-
 
 body {
   font-family: "Urbanist", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  padding-top: env(safe-area-inset-top); /* For iOS devices */
 }
 
+/* Container styles */
 .container {
+  width: 100%;
   max-width: 1170px;
   padding-left: 20px;
   padding-right: 20px;
-  margin: auto;
+  margin: 0 auto;
 }
 
+/* Responsive container sizes */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Section spacing */
 section {
   padding: 50px 0;
 }
 
+/* Header styles */
 .sticky_header {
   width: 100%;
-  height: 0px;
-  line-height: 20px;
-  position: sticky;
+  height: 80px; /* Fixed height for header */
+  line-height: 80px;
+  position: fixed; /* Changed from sticky to fixed */
   top: 0;
   left: 0;
-  box-shadow: 3px 3px -8px 3px #ddd;
-  z-index: 99;
-  backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
 }
 
+/* Dark mode header */
+.dark .sticky_header {
+  background: rgba(15, 23, 42, 0.95); /* slate-900 with opacity */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
 
-
-
-
-.sticky_header_message{
+.sticky_header_message {
   line-height: 20px;
 }
 
+/* Layout utilities */
+.flex-grow {
+  flex-grow: 1;
+}
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* Main content padding */
+main {
+  padding-top: 80px; /* Same as header height */
+}
+
+/* For anchor links */
+:target {
+  scroll-margin-top: 80px;
+}
+
+/* AOS animations adjustment */
+[data-aos] {
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .sticky_header {
+    height: auto;
+    line-height: normal;
+  }
+  
+  .mobile-menu-open {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* Improved transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Backdrop blur utilities */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Dark mode text colors */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #0f172a; /* slate-900 */
+  color: #ffffff;
+}
