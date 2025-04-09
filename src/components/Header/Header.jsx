@@ -1,46 +1,25 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { RiSunLine, RiMoonLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 
 const Header = () => {
   const headerRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setDarkMode] = useState(true);
 
   // Sticky Header for Scrolling
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 80) {
-        headerRef.current.classList.add('sticky_header', 'backdrop-blur-md');
+        headerRef.current.classList.add('sticky_header');
       } else {
-        headerRef.current.classList.remove('sticky_header', 'backdrop-blur-md');
+        headerRef.current.classList.remove('sticky_header');
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Sticky Message Header for Scrolling
-  useEffect(() => {
-    const handleMessageScroll = () => {
-      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        headerRef.current.classList.add('sticky_header_message');
-      } else {
-        headerRef.current.classList.remove('sticky_header_message');
-      }
-    };
-
-    window.addEventListener('scroll', handleMessageScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleMessageScroll);
-    };
-  }, []);
-
-  // Dark Mode State and Toggle Function
-  const [isDarkMode, setDarkMode] = useState(true);
 
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
@@ -56,72 +35,127 @@ const Header = () => {
 
     if (localStorageTheme === 'dark' || (!localStorageTheme && prefersDarkMode)) {
       setDarkMode(true);
-      document.documentElement.classList.add('dark'); // Ensure the class is added
+      document.documentElement.classList.add('dark');
     } else {
       setDarkMode(false);
-      document.documentElement.classList.remove('dark'); // Remove dark class if not in dark mode
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
-  // Keyboard Shortcut for Dark Mode Toggle
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.ctrlKey && event.shiftKey && event.key === 'F8') {
-        toggleDarkMode();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
+  const navItems = [
+    { path: '/about', label: 'About' },
+    { path: '/experience', label: 'Experience' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/contact', label: 'Contact' },
+  ];
 
   return (
     <header
       ref={headerRef}
-      className={`w-full lg:h-[90px] small-devices:h-[90px] transition-all duration-300 ${isDarkMode ? 'dark:bg-slate-900 bg-opacity-25' : 'bg-white bg-opacity-25'} flex justify-center lg:flex-row items-center overflow-hidden sticky_header backdrop-blur-md`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+        ${isDarkMode 
+          ? 'dark:bg-slate-900/95 dark:text-white' 
+          : 'bg-white/95 text-slate-900'
+        } ${isMenuOpen ? 'h-screen md:h-auto' : 'h-20'}`}
     >
-      <div className="container">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-[10px]">
-            <span className={`w-[35px] h-[35px] bg-violet-600 text-white rounded-full flex items-center justify-center`}>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo Section */}
+          <div className="flex items-center gap-3">
+            <span className="w-10 h-10 bg-violet-600 text-white rounded-full flex items-center justify-center font-bold">
               J
             </span>
-            <div className={`leading-[20px] ${isDarkMode ? 'dark:text-white' : 'text-smallTextColor-light'}`}>
-              <h2 className={`text-2xl font-[700]`}>
+            <div className="leading-tight">
+              <h2 className="text-xl font-bold">
                 <Link to="/">Jagadeesh</Link>
               </h2>
-              <p className={`text-[18px] font-[500]`}>Personal</p>
+              <p className="text-sm font-medium opacity-75">Personal</p>
             </div>
           </div>
 
-          <div className="menu">
-            <ul className="list-none flex items-center gap-10 md:gap-2">
-              <li className={`px-5 py-3 transition-all rounded-md font-[600] ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'}`}>
-                <Link to="/about">About</Link>
-              </li>
-              <li className={`px-5 py-3 transition-all rounded-md font-[600] ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'}`}>
-                <Link to="/experience">Experience</Link>
-              </li>
-              <li className={`px-5 py-3 transition-all rounded-md font-[600] ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'}`}>
-                <Link to="/projects">Projects</Link>
-              </li>
-              <li className={`px-5 py-3 transition-all rounded-md font-[600] ${isDarkMode ? 'dark:text-purple-700' : 'hover:text-white'}`}>
-                <Link to="/contact">Contact</Link>
-              </li>
-              <li>
-                <button
-                  className={`focus:outline-none px-4 py-2 flex flex-row gap-3 font-bold rounded-xl transition duration-300 ${isDarkMode ? 'dark:bg-slate-900 dark:text-white' : 'text-black hover:bg-violet-800 hover:text-white'}`}
-                  onClick={toggleDarkMode}
-                >
-                  {!isDarkMode ? <RiMoonLine className="text-white" /> : <RiSunLine className="text-smallTextColor hover:text-white" />}
-                </button>
-              </li>
-            </ul>
-          </div>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`px-3 py-2 rounded-md font-medium transition-colors
+                  ${isDarkMode
+                    ? 'text-white/70 hover:text-white hover:bg-white/10'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-lg transition-colors
+                ${isDarkMode
+                  ? 'text-white/70 hover:text-white hover:bg-white/10'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                }`}
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg transition-colors hover:bg-slate-100 dark:hover:bg-white/10"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <nav className="md:hidden min-h-screen py-8">
+            <div className="flex flex-col gap-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`px-4 py-3 rounded-lg font-medium transition-colors
+                    ${isDarkMode
+                      ? 'text-white/70 hover:text-white hover:bg-white/10'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              
+              {/* Mobile Dark Mode Toggle */}
+              <button
+                onClick={toggleDarkMode}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors
+                  ${isDarkMode
+                    ? 'text-white/70 hover:text-white hover:bg-white/10'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  }`}
+              >
+                {isDarkMode ? (
+                  <>
+                    <Sun size={20} />
+                    <span>Light Mode</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon size={20} />
+                    <span>Dark Mode</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );
