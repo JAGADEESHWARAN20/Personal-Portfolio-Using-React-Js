@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Aos from 'aos';
 
 import './App.css';
@@ -27,7 +27,7 @@ const App = () => {
     <Router>
       <div className="flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow pt-20 md:pt-24"> {/* Added padding-top to prevent content overlap */}
+        <main className="flex-grow pt-20 md:pt-24">
           <div className="container mx-auto px-4">
             <Switch>
               <Route exact path="/" component={Hero} />
@@ -36,6 +36,8 @@ const App = () => {
               <Route path="/projects" component={Portfolio} />
               <Route path="/contact" component={Contact} />
               <Route path="/uidesigns" component={UIDesigns} />
+              {/* Add a catch-all route */}
+              <Route path="*" component={Hero} />
             </Switch>
           </div>
         </main>
