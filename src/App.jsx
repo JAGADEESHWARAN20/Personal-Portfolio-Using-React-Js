@@ -7,7 +7,6 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
-
 // Other components
 import Hero from './components/UI/Hero';
 import Experience from './components/UI/Experience';
@@ -17,29 +16,31 @@ import UIDesigns from './components/UI/UIDesigns';
 
 const App = () => {
   useEffect(() => {
-    Aos.init();
-
+    Aos.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+    });
   }, []);
-  
-
 
   return (
     <Router>
-      <>
+      <div className="flex flex-col min-h-screen">
         <Header />
-        <main>
-          <Switch>
-            <Route exact path="/" component={Hero} />
-            <Route exact path="/about" component={Hero} />
-            <Route path="/experience" component={Experience} />
-            <Route path="/projects" component={Portfolio} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/uidesigns" component={UIDesigns} />
-
-          </Switch>
+        <main className="flex-grow pt-20 md:pt-24"> {/* Added padding-top to prevent content overlap */}
+          <div className="container mx-auto px-4">
+            <Switch>
+              <Route exact path="/" component={Hero} />
+              <Route exact path="/about" component={Hero} />
+              <Route path="/experience" component={Experience} />
+              <Route path="/projects" component={Portfolio} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/uidesigns" component={UIDesigns} />
+            </Switch>
+          </div>
         </main>
         <Footer />
-      </>
+      </div>
     </Router>
   );
 };
